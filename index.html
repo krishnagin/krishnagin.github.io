@@ -3,13 +3,20 @@
 <html>
 <head>
     <title>My Product Brand Name</title>
-    <link href="https://krishnagin.github.io/default/style.css" rel="stylesheet" type="text/css" data-preload="true"/>
+    <!--<link href="https://krishnagin.github.io/default/style.css" rel="stylesheet" type="text/css"
+    data-preload="true"/>-->
     <script>
      console.log(window.location.search);
      let urlParams = new URLSearchParams(window.location.search); 
-     if(urlParams.get('domain')){
+     if(urlParams.get('state')){
      var head = document.getElementsByTagName('head')[0];
-         let domain  = urlParams.get('domain');
+         let state = urlParams.get('state');
+         let domain = '';
+         try {
+          domain = state.split('|')[0].split(':')[1];
+         } catch(err){
+           domain = 'default';
+         }
  
         // Create new link Element
         var link = document.createElement('link');
