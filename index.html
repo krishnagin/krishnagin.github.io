@@ -6,6 +6,25 @@
     <link href="https://krishnagin.github.io/default/style.css" rel="stylesheet" type="text/css" data-preload="true"/>
     <script>
      console.log(window.location.search);
+     let urlParams = new URLSearchParams(window.location.search); 
+     if(urlParams.get('domain')){
+     var head = document.getElementsByTagName('head')[0];
+         let domain  = urlParams.get('domain');
+ 
+        // Create new link Element
+        var link = document.createElement('link');
+ 
+        // set the attributes for link element
+        link.rel = 'stylesheet';
+     
+        link.type = 'text/css';
+     
+        link.href = 'https://krishnagin.github.io/'+ domain +'/style.css';
+ 
+        // Append link element to HTML head
+        head.appendChild(link);
+    }
+    
     </script>
 </head>
 <body>
