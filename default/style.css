@@ -21,3 +21,7 @@ h1 {
   margin-left: auto ;
   margin-right: auto ;
 }
+.container {
+   background: url("https://images.app.goo.gl/RNk3ck16QiQi8PBFA") no-repeat center center;
+   background-size: cover;
+}
