@@ -2,42 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Product Brand Name</title>
-   <link href="https://krishnagin.github.io/default/style.css" rel="stylesheet" type="text/css"
-   data-preload="true"/>
-    <script>
-     console.log(window.location.search);
-     let urlParams = new URLSearchParams(window.location.search); 
-     if(urlParams.get('state')){
-     var head = document.getElementsByTagName('head')[0];
-         let state = urlParams.get('state');
-         let domain = 'default';
-         try {
-          domain = state.split('|')[0].split(':')[1];
-         } catch(err){
-           domain = 'default';
-         }
-        domain = domain ? domain : 'default';
-        // Create new link Element
-        var link = document.createElement('link');
- 
-        // set the attributes for link element
-        link.rel = 'preload';
-     
-        link.as = 'style';
-     
-        link.href = 'https://krishnagin.github.io/'+ domain +'/style.css';
-        link.onload = "this.onload=null;this.rel='stylesheet'";
-        //link.data-preload = 'true';
-       // link.setAttribute('data-preload','true');
- 
-        // Append link element to HTML head
-        head.appendChild(link);
-    }
-    
-    </script>
+    <title>Personal Site</title>
 </head>
 <body class="container">
-    <div id="api"></div>
+    <p>About me</p>
+    <div>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
 </body>
 </html>
