@@ -14,85 +14,258 @@
             padding: 0 10px;
             margin: 50px auto;
             max-width: 650px;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Calibri';
         }
 
-        h4, h2, p {
+        h4,
+        h2,
+        p {
             margin-bottom: 0px;
-            margin-top: 10px;
+            margin-top: 5px;
+        }
+
+        .heading {
+            color: red;
+            font-size: 16px;
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+
+        li, .sub_title {
+            color: rgb(96, 94, 94);
+            font-weight: 500;
+        }
+        .sub_title {
+            font-size: 14px;
+        }
+
+        ul, p{
+            margin-top: 0px;
+        }
+
+        ul{
+            margin-block-end: 8px;
+            padding-inline-start: 20px;
+        }
+        
+        h1{
+            margin: 0px;
+        }
+        hr {
+            margin-top: 0px;
+        }
+        .header {
+            display: flex;
+            /* flex-direction: column; */
+            gap: 200px;
+        }
+        .header_1 {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .header_2 {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+            /* text-align: right; */
+        }
+        .header_3{
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+            font-size: 14px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+        .details{
+            padding-left: 5px;
+        }
+        .details > p {
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body class="container">
-    <h2>Gopikrishna Srinivasan</h2>
-    <i>Senior Associate Full-Stack Developer</i>
-    <br/>
-    <i>I’m a developer who strives to learn continuously and focuses on getting things done quickly and as best as possible</i>
-    <br />
-    <p>Contact:
-        <i><a href="mailto:dhanakrishna94@gmail.com">Email</a></i>
-        <i><a href="tel:+91 9043408137">Phone</a></i>
-    </p>
-    <p>Social Profiles:
-        <i><a href="https://github.com/krishnagin" target="_blank">Github</a></i>
-        <i><a href="https://x.com/Gopikrishna1809" target="_blank">X</a></i>
-        <i><a href="https://www.linkedin.com/in/gopikrishna-srinivasan-8b4361b8/" target="_blank">LinkedIn</a></i>
-    </p>
-    <p>
-    <h4>Education</h4>
-    <span>B.E - Electronics and Communication Engineering in Sai Ram Engineering College, Chennai
-    </span>
-    </p>
-    <p>
-        <h4>Primary Skills</h4>
-        <span>Java, Angular, JSP/Servlets, Spring Framework, Search Engine, Typescript
-        </span>
+    <div class="header">
+        <div class="header_1">
+            <h1>Gopikrishna Srinivasan</h1><i style="font-size: 16px;">Mobile & Web Full-Stack Developer</i>
+        </div>
+        <div class="header_2">
+            <main>
+                <section>
+                    <p>Chennai</p>
+                    <p>Tamil Nadu, India</p>
+                    <p>+91 9043408137</p>
+                    <p><a href="mailto:dhanakrishna94@gmail.com">dhanakrishna94@gmail.com</a></p>
+                </section>
+            </main>
+        </div>
+    </div>
+    <div class="header_3">
+        <p></p>
+        <p><a href="https://github.com/krishnagin" target="_blank">github.com/krishnagin</a></p>
+        <p><a href="https://www.linkedin.com/in/gopikrishna-srinivasan-8b4361b8/" target="_blank">linkedin.com/in/gopikrishna-srinivasan-8b4361b8/</a></p>
+    </div>
+    <!-- <i>I’m a developer who strives to learn continuously and focuses on getting things done quickly and as best as
+        possible</i>
+    <br /> -->
+    <div>
+        <h3 class="heading">SKILLS</h3>
+        <hr />
+        <div>
+            <p><b>Programming Languages: </b><span class="sub_title" style="font-size: 16px;">Java, TypeScript, JavaScript, SQL(RDBMS), Bash, Go(Beginner)</span></p>
+            
+        </div>
+        
+        <p><b>Frameworks/Tools:</b>
+            <span class="sub_title" style="font-size: 16px;">Angular, JSP/Servlets, Spring
+            Framework, Spring Boot, Apache Camel, Git, JQuery, Oracle Database, Apache Solr, Azure Active Directory, Ionic Framework, Apache Cordova, Capacitor, SOAP, JAX-RS, Splunk, AppDynamics, JDBC</span></p>
+    </div>
+    <div>
+        <h3 class="heading">EXPERIENCE</h3>
+        <hr>
+        <div>
+            <!-- heading -->
+             <p><b><a href="https://www.bny.com/">BNY</a>, Senior Associate Full Stack Developer</b></p>
+            <!-- period -->
+             <p class="sub_title">Aug 2021 - Aug 2024</p>
+             <!-- list of things done -->
+            <div class="details">
+                <p>Migration of Legacy Authentication From Database to Cloud Active Directory</p>
+                <ul>
+                    <li>Lead the design and prototyped the OAUTH authentication flow for the legacy web application</li>
+                    <li>Extended the prototype to include branding and MFA requirements</li>
+                    <li>Built reusable authentication flow for other teams to integrate</li>
+                    <li>Created user self-registration forms in Angular</li>
+                    <li>Successfully migrated few thousand users to the new authentication flow</li>
+                </ul>
+            </div>
+            <div class="details">
+                <p>Mobile Application Development</p>
+                <ul>
+                    <li>Built reusable Angular libraries and REST API endpoints</li>
+                    <li>Developed performance reporting components</li>
+                    <li>Automated native builds with custom scripts</li>
+                </ul>
+            </div>
+            <div class="details">
+                <p>Search System Maintenance</p>
+                <ul>
+                    <li>Resolved production issues and documented existing search app</li>
+                    <li>Key contributor in developing and maintaining the search engine system</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <!-- heading -->
+            <p><b><a href="https://www.bny.com/">BNY</a>, Associate Back End Developer</b></p>
+            <!-- period -->
+             <p class="sub_title">Jul 2016 - Jul 2021</p>
+             <!-- list of things done -->
+           
+            <div class="details">
+                <p>New Search Query Optimization</p>
+                <ul>
+                    <li>Designed and implemented enhanced search queries</li>
+                    <li>Extended the existing index creation script to add the new search capabilities</li>
+                    <li>Documented the changes and onboarded other teams to Successfully use the new feature in non-prod regions</li>
+                    <li>Migrated changes to production with zero downtime</li>
+                </ul>
+            </div>
+            <div class="details">
+                <p>REST API for Book of Records</p>
+                <ul>
+                    <li>Developed new API for book of records</li>
+                    <li>Extended existing API framework and collabrated with API gateway framework to expose the API endpoint for client usage</li>
+                </ul>
+            </div>
+            <div class="details">
+                <p>Rewrite HTML/CSV reports using new Java Execution Engine</p>
+                <ul>
+                    <li>Built custom transform functions to rewrite reports render using raw data from Java execution engine</li>
+                    <li>Rewrite new performance report using functional programming interface</li>
+                    <li>Executed the test cases to increase code coverage and managed code quality through sonar qube</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- <h3 class="heading">EXPERIENCE</h3>
+        
         </p>
-    <p>
-    <h3>Work Experience: <i>8 years</i></h3>
-    </p>
-
-    <p>
-
-    <h4>Aug 2021- Aug 2024</h4>
-    <span><b>BNY (Bank Of New York)</b> - <i>Senior Associate Front-End Developer</i></span>
-    <h4>Jul 2016- Jul 2021</h4>
-    <span><b>BNY (Bank Of New York)</b> - <i>Associate Back-End Developer</i></span>
-    </p>
-    <h3>Project Experience:</h3>
-    <h4>Azure Active Directory - B2C <a href="https://learn.microsoft.com/en-us/azure/active-directory-b2c/overview" target="_blank"><i>AADB2C</i></a></h4>
-    <p>
-    <ul>
-        <li>Lead the team for the migration of User Authentication from Legacy Database to Azure Active Directory</li>
-        <li>Prototyped the authencation mechanism for the legacy web application</li>
-        <li>Successfully migrated the web application to Multi Factor Authentication</li>
-    </ul>
-    </p>
-    <h4>Enhanced Search Functionality <a href="https://solr.apache.org/" target="_blank"><i>solr</i></a>/<a
-            href="https://zookeeper.apache.org/" target="_blank"><i>zookeeper</i></a></h4>
-    <p>
-    <ul>
-        <li>Lead the project to modify existing search engine system to support new queries</li>
-        <li>Upgraded search engine system to newer stable versions</li>
-    </ul>
-    </p>
-    <h4>Mobile Application for Performance Reporting using <a href="https://ionicframework.com/" target="_blank"><i>ionic</i></a> and <a href="https://cordova.apache.org/" target="_blank"><i>cordova</i></a></h4>
-    <p>
+        <p>
+            <span><b>Senior Associate Full-Stack Developer</b> BNY, Aug 2021 - Aug 2024</span><br />
+            <span><b>Associate Back-End Developer</b> BNY, Jul 2016 - Jul 2021</span>
+        </p>
+    
+        <h3 class="heading">PROJECTS</h3>
+        <hr>
+        <h4>Azure Active Directory - B2C <a href="https://learn.microsoft.com/en-us/azure/active-directory-b2c/overview"
+                target="_blank"><i>AADB2C</i></a></h4>
+        <p><b>Project Summary:</b> Migrated user authentication from a legacy database to Azure Active Directory,
+            handling the authentication flow through the OAuth protocol which involves generation of ID tokens to
+            identify users in the legacy database.</p>
+        <p>
         <ul>
-            <li>Created an angular library for reuse within the projects across various components</li>
-            <li>Assisted in running the native builds of the application</li>
-            <li>Developed mobile-friendly web components using <a href="https://angular.dev/" target="_blank"><i>angular framework</i></a></li>
-            <li>Documented the overall development and build process</li>
+            <li><b>Team Lead for Migration:</b> Spearheaded the migration of user authentication from a legacy database
+                to Azure Active Directory.</li>
+            <li><b>Prototype Development:</b> Designed and prototyped the authentication mechanism for a legacy web
+                application.</li>
+            <li><b>Multi-Factor Authentication (MFA):</b> Successfully implemented and migrated the web application to
+                use Multi-Factor Authentication.</li>
         </ul>
-    </p>
-    <h4>Rest APIs for Performance reporting</h4>
-    <p>
+        </p>
+        <h4>Enhanced Search Functionality <a href="https://solr.apache.org/" target="_blank"><i>solr</i></a>/<a
+                href="https://zookeeper.apache.org/" target="_blank"><i>zookeeper</i></a></h4>
+        <p><b>Project Summary:</b> Added new search query capabilities to an existing search application, migrated the
+            changes to production, and assisted in reindexing the collection.</p>
+        <p>
         <ul>
-            <li>Developed APIs using jax-rs framework</li>
-            <li>Created reports in HTML, PDF and CSV formats using Java libaries</li>
+            <li><b>Project Lead:</b> Directed the modification of the existing search engine system to support new query
+                formats.</li>
+            <li><b>System Upgrade:</b> Upgraded the search engine to the latest stable versions, ensuring improved
+                performance and stability.</li>
         </ul>
-    </p>
+        </p>
+        <h4>Mobile Application for Performance Reporting using <a href="https://ionicframework.com/"
+                target="_blank"><i>ionic</i></a> and <a href="https://cordova.apache.org/"
+                target="_blank"><i>cordova</i></a></h4>
+        <p><b>Project Summary:</b>Developed a new mobile application for viewing client reports as various cards. The
+            app displays client holdings, rate of return, frequently accessed reports, recently accessed clients, and
+            other miscellaneous information.
+        </p>
+        <p>
+        <ul>
+            <li><b>Reusable Angular Library:</b> Created an Angular library for reusable components across various
+                projects.</li>
+            <li><b>Native Build Assistance:</b> Assisted in running native builds of the application.</li>
+            <li><b>Mobile-Friendly Components:</b> Developed mobile-friendly web components using the Angular framework.
+            </li>
+            <li><b>Comprehensive Documentation:</b> Documented the overall development and build process.</li>
+        </ul>
+        </p>
+        <h4>Rest APIs for Performance reporting</h4>
+        <p><b>Project Summary:</b> Developed REST APIs to retrieve various client information, including client
+            holdings, performance, risk and return, and benchmark performance. These APIs generate reports in multiple
+            formats such as HTML, CSV, and PDF.</p>
+        <p>
+        <ul>
+            <li><b>API Development:</b> Developed REST APIs using the JAX-RS framework.</li>
+            <li><b>Report Generation:</b> Created reports in HTML, PDF, and CSV formats using Java libraries.</li>
+        </ul>
+        </p>
+        <p> -->
+        <h3 class="heading">EDUCATION</h3>
+        <hr />
+        <span><b>Sri Sai Ram Engineering College</b> - B.E(ECE)</span><br>
+        <span class="sub_title">2012 - 2016</span>
+        <ul>
+            <li>Majors: Electronics and Communication - CGPA 8.75</li>
+        </ul>
+        
+        </p>
 </body>
 
 </html>
