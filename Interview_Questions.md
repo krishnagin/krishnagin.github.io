@@ -18,3 +18,8 @@
 - What is the difference between Exception and Errors in Java?
 - What is the difference between Spring and Spring Boot?
 - what purpose does default keyword serve?
+
+## API Design
+- How do you design API for a given scenario? (Focus on the resource URIs, http methods, error handling, req/resp structure, authorization)
+- What is difference between @Controller and @RestController?
+
