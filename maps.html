@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanchipuram District - Government Veterinary Clinics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openlocationcode/1.0.4/openlocationcode.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #header {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        #header h1 {
+            margin: 0 0 5px 0;
+            font-size: 24px;
+        }
+        #header p {
+            margin: 0;
+            font-size: 14px;
+        }
+        #map {
+            height: calc(100vh - 120px);
+            width: 100%;
+        }
+        #info {
+            padding: 15px;
+            background: #f0f0f0;
+            text-align: center;
+            font-size: 14px;
+        }
+        .clinic-popup {
+            font-family: Arial, sans-serif;
+        }
+        .clinic-popup strong {
+            font-size: 15px;
+            color: #047857;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Kanchipuram District</h1>
+        <p>Government Veterinary Clinics</p>
+    </div>
+    
+    <div id="info">
+        <strong>Total Government Veterinary Clinics: 6</strong>
+    </div>
+    
+    <div id="map"></div>
+    
+    <script>
+        var clinicData = [
+            { name: "Tirupukuzhi", plusCode: "VJHC+W9J" },
+            { name: "Vedal", plusCode: "VQG2+XMH" },
+            { name: "Elanagar", plusCode: "MM3Q+8V2" },
+            { name: "Sirumailur", plusCode: "PR3Q+HFH" },
+            { name: "Vaiyavoor", plusCode: "RPQR+C5R" },
+            { name: "Puthagaram", plusCode: "RRQ4+M3J" },
+			{ name: "Kooram", plusCode: "WM46+M87" },
+			{ name: "kaliyampoondi", plusCode: "JPQC+P79" },
+			{ name: "Devarayiampakkam", plusCode: "RV8C+G43" },
+			{ name: "Manampathy", plusCode: "JMG7+HWG" },
+			{ name: "Salavakkam", plusCode: "MVFQ+QF8" },
+			{ name: "Uthiramerur", plusCode: "JQ96+9M6" },
+			{ name: "Vishar", plusCode: "RJM9+P6W" },
+			{ name: "Thirupulivanam", plusCode: "MQC5+6WV" },
+			{ name: "Damal", plusCode: "VHPV+MF4" },
+			{ name: "Musaravakkam", plusCode: "VJ52+49" },
+			{ name: "Kunnavakkam", plusCode: "MR9C+9QG" },
+        ];
+        
+        var myMap;
+        var kanchipuramCenter = [12.8342, 79.7036];
+        
+        function decodePlusCode(plusCode, referenceLat, referenceLng) {
+            try {
+                var olc = OpenLocationCode;
+                var fullCode = plusCode;
+                
+                if (!olc.isFull(plusCode)) {
+                    fullCode = olc.recoverNearest(plusCode, referenceLat, referenceLng);
+                }
+                
+                var codeArea = olc.decode(fullCode);
+                return {
+                    lat: codeArea.latitudeCenter,
+                    lng: codeArea.longitudeCenter
+                };
+            } catch (e) {
+                console.error('Error decoding plus code:', plusCode, e);
+                return null;
+            }
+        }
+        
+        function initializeMap() {
+            myMap = L.map('map').setView(kanchipuramCenter, 10);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors',
+                maxZoom: 18
+            }).addTo(myMap);
+            
+            var districtBounds = [
+                [12.4, 79.6],
+                [12.4, 80.1],
+                [13.1, 80.1],
+                [13.1, 79.6],
+                [12.4, 79.6]
+            ];
+            
+            L.polygon(districtBounds, {
+                color: '#059669',
+                weight: 3,
+                fillColor: '#d1fae5',
+                fillOpacity: 0.2,
+                dashArray: '5, 10'
+            }).addTo(myMap);
+            
+            var bounds = [];
+            
+            for (var i = 0; i < clinicData.length; i++) {
+                var clinic = clinicData[i];
+                var coords = decodePlusCode(clinic.plusCode, kanchipuramCenter[0], kanchipuramCenter[1]);
+                
+                if (coords) {
+                    bounds.push([coords.lat, coords.lng]);
+                    
+                    var markerIcon = L.divIcon({
+                        className: 'custom-div-icon',
+                        html: '<div style="background-color:#059669; width:28px; height:28px; border-radius:50%; border:3px solid white; box-shadow:0 2px 5px rgba(0,0,0,0.3);"></div>',
+                        iconSize: [28, 28],
+                        iconAnchor: [14, 14]
+                    });
+                    
+                    var marker = L.marker([coords.lat, coords.lng], {
+                        icon: markerIcon
+                    }).addTo(myMap);
+                    
+                    var popupContent = '<div class="clinic-popup">' +
+                        '<strong>' + clinic.name + '</strong><br>' +
+                        '<em>Government Veterinary Clinic</em><br>' +
+                        'Plus Code: ' + clinic.plusCode + '<br>' +
+                        'Coordinates: ' + coords.lat.toFixed(5) + ', ' + coords.lng.toFixed(5) +
+                        '</div>';
+                    
+                    marker.bindPopup(popupContent);
+                }
+            }
+            
+            if (bounds.length > 0) {
+                myMap.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }
+        
+        window.onload = function() {
+            initializeMap();
+        };
+    </script>
+</body>
+</html>
